@@ -8,6 +8,20 @@
 
 TARGET=$1
 
+# setup gecko-dev
+cd "$TARGET/gecko-dev"
+git clone git@github.com:KuoE0/gecko-dev.git    "$TARGET/gecko-dev"
+git remote add mozilla https://github.com/mozilla/gecko-dev.git
+git fetch mozilla
+cd -
+
+# setup gaia-dev
+cd "$TARGET/gaia-dev"
+git clone git@github.com:KuoE0/gaia-dev.git	    "$TARGET/gaia-dev"
+git remote add mozilla https://github.com/mozilla-b2g/gaia
+git fetch mozilla
+cd -
+
 # setup b2g-manifest
 git clone git@github.com:KuoE0/b2g-manifest.git "$TARGET/b2g-manifest"
 cd "$TARGET/b2g-manifest"
@@ -22,17 +36,7 @@ git remote add mozilla https://github.com/mozilla-b2g/B2G.git
 git fetch mozilla
 cd -
 
-# setup gecko-dev
-cd "$TARGET/gecko-dev"
-git clone git@github.com:KuoE0/gecko-dev.git    "$TARGET/gecko-dev"
-git remote add mozilla https://github.com/mozilla/gecko-dev.git
-git fetch mozilla
-cd -
-
-# setup gaia-dev
-cd "$TARGET/gaia-dev"
-git clone git@github.com:KuoE0/gaia-dev.git	    "$TARGET/gaia-dev"
-git remote add mozilla https://github.com/mozilla-b2g/gaia
-git fetch mozilla
-cd -
+# create symbolic link to gecko & gaia
+ln -s "$TARGET/gecko-dev" "$TARGET/B2G-dev/gecko"
+ln -s "$TARGET/gaia-dev"  "$TARGET/B2G-dev/gaia"
 
