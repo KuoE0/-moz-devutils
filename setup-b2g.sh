@@ -23,7 +23,7 @@ git fetch mozilla
 cd -
 
 # setup b2g-manifest
-git clone git@github.com:KuoE0/b2g-manifest.git "$TARGET/b2g-manifest"
+git clone git@github.com:KuoE0/b2g-manifest-dev.git "$TARGET/b2g-manifest"
 cd "$TARGET/b2g-manifest"
 git remote add mozilla https://github.com/mozilla-b2g/b2g-manifest.git
 git fetch mozilla
